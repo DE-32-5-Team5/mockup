@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* padding-bottom: 8%; */
+}
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* box-sizing: border-box; */
+}
+
+/* 헤더 */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    width: 70%;
+    height: 6%;
+    margin-top: 1%;
+    flex: none;
+}
+
+.header form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 100%;
+    /* flex: 1; */
+    /* margin-left: 10px; */
+}
+
+.header input {
+    /* flex: 1; */
+    flex-grow: 1;
+    padding: 5px;
+    font-size: 1rem;
+    margin: 0 1%;
+    width: 60%;
+    height: 60%;
+}
+
+.header button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    height: 60%;
+}
+.header .submit {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+.header .profile {
+    font-size: 2rem;
+    /* color: #333; */
+    text-decoration: none;
+    /* margin-left: 1%; */
+    /* height: 80%; */
+}
+
+/* 갤러리 컨테이너 */
+#gallery-container {
+    width: 70%;
+    max-width: 1200px;
+    min-height: calc(100vh - 100px -8%); /* 전체 화면에서 헤더/푸터 제외한 높이 */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 갤러리 */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* flex-wrap: wrap; */
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: auto;
+}
+
+.item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+}
+
+.desc {
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.desc .adress {
+    font-size: 12px;
+    color: #555;
+}
+
+/* 페이지 네비게이션 버튼 */
+.galleryButton {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.galleryButton button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.galleryButton button:hover {
+    background-color: #0056b3;
+}
+
+/* 네비게이션 */
+.nav {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8%;
+    padding-bottom: 0.5%;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+.nav .mapPage,
+.nav .partyPage,
+.nav .favorPage {
+    font-size: 2.5rem;
+}
+.nav {
+    cursor: pointer;
+}
+
+.nav .partyPage a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 푸터 */
+.footer {
+    display: flex;
+    /* padding: 10px; */
+    width: 70%;
+    height: 2%;
+    justify-content: center;
+    text-align: center;
+    background-color: #f8f9fa;
+    font-size: 12px;
+    color: #777;
+    border-top: 1px solid #ddd;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+    #gallery-container {
+        width: 100%;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* flex-wrap: wrap; */
+        gap: 10px;
+        /* justify-content: center; */
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .header {
+        width: 90%;
+        height: auto; /* 부모 컨테이너 높이의 10% */
+        min-height: 60px; /* 최소 높이 설정 */
+        margin-top: 3%;
+    }
+    .header form {
+        width: 100%;
+    }
+    .header input {
+        flex-grow: 1;
+        width: 100%;
+        margin: 5px 0;
+        margin-right: 1%;
+    }
+    .header button {
+        width: auto;
+        height: auto;
+        font-size: 0.8rem;
+
+    }
+    /* .header .submit {
+        font-size: 0.6rem;
+        width: 
+        margin-left: 1vh;
+        margin-right: 1vh;
+    } */
+    .header .profile {
+        font-size: 1.5rem;
+        padding-bottom: 1%;
+    }
+    .nav,.footer {
+        width: 90%;
+    }
+}
