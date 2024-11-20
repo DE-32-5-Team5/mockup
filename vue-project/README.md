@@ -1,4 +1,0 @@
-# mockup
-
-- bookmarks for mockup
-

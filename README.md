@@ -1,3 +1,4 @@
 # mockup
 
-- parkinginfo for mockup
+- bookmarks for mockup
+
