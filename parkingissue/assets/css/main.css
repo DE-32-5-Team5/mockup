@@ -2881,6 +2881,12 @@ input, select, textarea {
 			
 		}
 
+			#header .inner {
+				width: 100%;
+				max-width: 68em;
+				margin: 0 auto;
+				padding: 0 2.5em;
+			}
 		/* Header 로고 스타일 */
 			#header .logo {
 				font-family: 'Yeongdo', sans-serif;
@@ -2896,8 +2902,6 @@ input, select, textarea {
 				white-space: nowrap; /* 텍스트가 한 줄에 나오도록 설정 */
 				justify-content: flex-start; /* 로고와 텍스트를 왼쪽으로 정렬 */
 				margin-left: -4em; /* 왼쪽으로 이동 */
-				
-				
 			}
 			#header .logo > * {
 				display: inline-block;
@@ -2905,7 +2909,6 @@ input, select, textarea {
 				
 			}
 			
-
 			/* 로고 이미지 스타일 */
 			#header .logo .symbol {
 				margin-right: 0.2em; /* 로고 이미지와 텍스트 간 간격 */
@@ -3074,20 +3077,20 @@ input, select, textarea {
 		justify-content: flex-start;
 	}
 
-	/* .inner에 여백이 있을 경우, 이를 제거 */
-	.inner {
-		margin: 0; /* 여백 제거 */
-		padding: 0; /* 여백 제거 */
-		width: 100%; /* 너비를 100%로 설정 */
-	}
+		/* .inner에 여백이 있을 경우, 이를 제거 */
+		.inner {
+			margin: 0; /* 여백 제거 */
+			padding: 0; /* 여백 제거 */
+			width: 100%; /* 너비를 100%로 설정 */
+		}
 
-	/* 지도 섹션 */
-	.map-section {
-		width: 100%; /* 부모 섹션의 너비를 100%로 설정 */
-		height: 100%; /* 부모 섹션에 맞게 높이 설정 */
-		display: flex;
-		justify-content: flex-start;
-	}
+		/* 지도 섹션 */
+		.map-section {
+			width: 100%; /* 부모 섹션의 너비를 100%로 설정 */
+			height: 100%; /* 부모 섹션에 맞게 높이 설정 */
+			display: flex;
+			justify-content: flex-start;
+		}
 
 	/* 지도 */
 	#map {
@@ -3264,12 +3267,12 @@ input, select, textarea {
 
 /* Wrapper */
 
-	#wrapper > * > .inner {
+	/* #wrapper > * > .inner {
 		width: 100%;
 		max-width: 68em;
 		margin: 0 auto;
 		padding: 0 2.5em;
-	}
+	} */
 
 		@media screen and (max-width: 736px) {
 

@@ -46,6 +46,8 @@
             </div>
         </div>
 
+    <!-- 지도 그리는 곳 -->
+
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
@@ -56,7 +58,7 @@
 
         // OpenStreetMap 타일 레이어 추가
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
+            maxZoom: 21,
             attribution: '© OpenStreetMap'
         }).addTo(map);
 
@@ -82,7 +84,7 @@
                 marker.bindPopup("<b>내 위치</b>").openPopup();
 
                 // 지도 중심을 현재 위치로 이동
-                map.setView([latitude, longitude], 13);
+                map.setView([latitude, longitude], 15);
             }
 
             function error() {
