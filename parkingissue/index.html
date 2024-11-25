@@ -113,9 +113,17 @@
                 });
 
                 // 지도에 커스텀 아이콘을 사용하는 마커 추가
-                L.marker([latitude, longitude], { icon: customIcon }).addTo(map)
-                    .bindPopup("커스텀 마커 위치");
+                // 아래처럼 marker를 변수 지정해주고
+                // 주차장 marker는 따로 parking_marker 로 변수 넣으면 될듯
+                var marker = L.marker([latitude, longitude], { icon: customIcon }).addTo(map)
                 
+                // 마커 클릭 이벤트
+                // 원하는 변수의 마커에 event 추가
+                marker.on('click', function() {
+                    // 원하는 HTML 페이지로 이동
+                    window.location.href = 'yourpage.html';
+                });
+
                 // 지도에서 현재 위치에 마커 추가
                 // var marker = L.marker([latitude, longitude]).addTo(map);
                 // marker에 팝업 생성
