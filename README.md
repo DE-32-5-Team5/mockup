@@ -1,3 +1,3 @@
 # mockup
 
-- mainpage for mockup
+- Mockup 모음
