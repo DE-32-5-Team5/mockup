@@ -43,7 +43,7 @@
                     <div class="map-section" style="position: relative;">
                         <!-- Leaflet 지도를 표시할 div -->
                         <div id="map" style="position: relative; width: 100vw; height: 76vh;"></div>
-                        <button id="find-me" style="position: absolute; bottom: 20px; right: 20px; width: 60px; height: 60px; padding: 0; border: none; background-color: white ; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); z-index: 1000;">
+                        <button id="find-me" style="position: absolute; bottom: 20px; right: 20px; width: 60px; height: 60px; padding: 0; border: none; border-radius: 8px; z-index: 1000;">
                             <img src="images/naver.png" style="width: 100%; height: 100%; object-fit: cover;">
                         </button>
                     </div>
@@ -135,6 +135,8 @@
 
                 // 지도 중심을 현재 위치로 이동
                 map.setView([latitude, longitude], 15);
+
+                map.invalidateSize(); // 지도 크기 갱신 (리사이징 문제 방지)
             }
 
             function error() {
@@ -156,12 +158,5 @@
             location.reload();
         });
     </script>
-
-    <!-- Additional Scripts -->
-    <!-- <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script> -->
 </body>
 </html>
