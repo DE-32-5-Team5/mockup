@@ -1,56 +1,133 @@
-const gallery = document.getElementById("gallery");
-const nextPageButton = document.getElementById("next-page");
-const prevPageButton = document.getElementById("prev-page");
+document.addEventListener("DOMContentLoaded", function () {
+    const rootElement = document.getElementById("item-container");
 
-// 모든 item 요소를 가져옴
-const items = Array.from(gallery.children);
+    // Generate 23 articles
+    for (let i = 0; i < 23; i++) {
+        // Wrap entire article content in an <a> tag
+        const link = document.createElement("a");
+        link.href = "post1.html"; // Link to post1.html
+        link.classList.add("article-link");
 
-let itemsPerPage = getItemsPerPage(); // 초기 페이지당 아이템 수 설정
-let currentPage = 1; // 현재 페이지
+        const article = document.createElement("article");
+        article.classList.add("article");
 
-function getItemsPerPage() {
-    return window.innerWidth <= 768 ? 6 : 9; // 모바일은 6개, PC는 9개
-}
+        // Image Section
+        const imageContainer = document.createElement("div");
+        imageContainer.classList.add("image-container");
+        const img = document.createElement("img");
+        img.src = "https://images.unsplash.com/photo-1492684223066-81342ee5ff30";
+        img.alt = "Coachella Music Festival main stage at sunset";
+        imageContainer.appendChild(img);
 
-function renderPage(page) {
-    itemsPerPage = getItemsPerPage(); // 화면 크기에 따라 동적 변경
-    const startIndex = (page - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
+        // Card Content
+        const cardContent = document.createElement("div");
+        cardContent.classList.add("card-content");
 
-    // 모든 item 숨김
-    items.forEach((item, index) => {
-        item.style.display = index >= startIndex && index < endIndex ? "block" : "none";
-    });
+        // Title
+        const title = document.createElement("h2");
+        title.classList.add("card-title");
+        title.textContent = "Coachella Valley Music and Arts Festival 2024";
 
-    // 버튼 표시/숨김
-    prevPageButton.style.display = page > 1 ? "inline-block" : "none";
-    nextPageButton.style.display = endIndex < items.length ? "inline-block" : "none";
-}
+        // Flex Containers for Address and Date
+        const flexContainers = [
+            {
+                iconId: "map-pin",
+                icon: "📍", // MapPin
+                text: "Empire Polo Club, 81-800 Avenue 51, Indio, CA 92201"
+            },
+            {
+                iconId: "calendar",
+                icon: "📅", // Calendar
+                text: "April 12-14 & April 19-21, 2024"
+            }
+        ];
 
-// 다음 페이지 버튼 이벤트
-nextPageButton.addEventListener("click", () => {
-    currentPage++;
-    renderPage(currentPage);
-});
+        flexContainers.forEach(item => {
+            const flexDiv = document.createElement("div");
+            flexDiv.classList.add("flex-container");
 
-// 이전 페이지 버튼 이벤트
-prevPageButton.addEventListener("click", () => {
-    currentPage--;
-    renderPage(currentPage);
-});
+            const iconSpan = document.createElement("span");
+            iconSpan.classList.add("icon");
+            iconSpan.id = item.iconId;
+            iconSpan.textContent = item.icon;
 
-// 화면 크기 변화 시 페이지 리렌더링
-window.addEventListener("resize", () => {
-    const previousItemsPerPage = itemsPerPage;
-    itemsPerPage = getItemsPerPage();
+            const textSpan = document.createElement("span");
+            textSpan.innerHTML = item.text;
 
-    // 페이지 수가 바뀌었으면 현재 페이지를 조정
-    if (itemsPerPage !== previousItemsPerPage) {
-        currentPage = Math.ceil((currentPage - 1) * previousItemsPerPage / itemsPerPage) + 1;
+            flexDiv.appendChild(iconSpan);
+            flexDiv.appendChild(textSpan);
+
+            cardContent.appendChild(flexDiv);
+        });
+
+        // Build structure: article -> link -> imageContainer, cardContent
+        article.appendChild(imageContainer);
+        article.appendChild(cardContent);
+
+        // Add article inside link
+        link.appendChild(article);
+
+        // Append link to the root element
+        rootElement.appendChild(link);
     }
 
+    // Pagination Variables
+    const gallery = document.getElementById("item-container");
+    const nextPageButton = document.getElementById("next-page");
+    const prevPageButton = document.getElementById("prev-page");
+
+    // Get all item elements
+    const items = Array.from(gallery.children);
+
+    let itemsPerPage = getItemsPerPage(); // Initial items per page setting
+    let currentPage = 1; // Current page
+
+    // Function to determine items per page based on window size
+    function getItemsPerPage() {
+        return window.innerWidth <= 768 ? 6 : 9; // 6 items on mobile, 9 items on desktop
+    }
+
+    // Function to render the current page
+    function renderPage(page) {
+        itemsPerPage = getItemsPerPage(); // Dynamically update based on screen size
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+
+        // Hide all items
+        items.forEach((item, index) => {
+            item.style.display = index >= startIndex && index < endIndex ? "block" : "none";
+        });
+
+        // Show/hide pagination buttons
+        prevPageButton.style.display = page > 1 ? "inline-block" : "none";
+        nextPageButton.style.display = endIndex < items.length ? "inline-block" : "none";
+    }
+
+    // Next page button click event
+    nextPageButton.addEventListener("click", () => {
+        currentPage++;
+        renderPage(currentPage);
+    });
+
+    // Previous page button click event
+    prevPageButton.addEventListener("click", () => {
+        currentPage--;
+        renderPage(currentPage);
+    });
+
+    // Resize event to handle changes in items per page
+    window.addEventListener("resize", () => {
+        const previousItemsPerPage = itemsPerPage;
+        itemsPerPage = getItemsPerPage();
+
+        // Adjust current page if number of items per page changes
+        if (itemsPerPage !== previousItemsPerPage) {
+            currentPage = Math.ceil((currentPage - 1) * previousItemsPerPage / itemsPerPage) + 1;
+        }
+
+        renderPage(currentPage);
+    });
+
+    // Initial render
     renderPage(currentPage);
 });
-
-// 초기 렌더링
-renderPage(currentPage);
