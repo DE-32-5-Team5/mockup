@@ -27,6 +27,9 @@
                     <div class="search-bar-container">
                         <img src="images/돋보기.png" alt="검색 아이콘" class="search-icon" />
                         <input type="text" class="search-bar" placeholder="검색어를 입력하세요">
+                        <button class="voice-search-btn" title="음성 검색">
+                            <img src="images/microphone.png" alt="음성 검색 아이콘" class="voice-search-icon" />
+                        </button>
                     </div>
                 </div>
             </div>
@@ -71,7 +74,8 @@
 
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
+    <!-- voice search -->
+    <script src="assets/js/voice-search.js"></script>
     <!-- Initialize the Leaflet Map -->
     <script>
         // 지도 초기화 (서울 좌표 및 줌 레벨 설정)
