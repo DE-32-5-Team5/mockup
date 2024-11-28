@@ -1,300 +1,152 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@font-face {
+    font-family: 'Yeongdo';
+    src: url('../../fonts/영도체-패밀리/TTF/Yeongdo-Heavy.ttf') format('truetype');
 }
 
-html, body {
-    height: 100%;
-    font-family: Arial, sans-serif;
-}
+/* Header */
+/* #header {
+    padding: 0em 0 0.1em 0;
+} */
 
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    /* padding-bottom: 8%; */
-}
-.container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* #header의 내부 컨테이너 */
+#header .inner {
     width: 100%;
-    /* box-sizing: border-box; */
+    max-width: 70%;
+    /* margin: 0 auto; */
+    padding: 0 2.5em;
 }
 
-/* 헤더 */
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f4f4f4;
-    width: 70%;
-    padding: 1% 0;
-    flex: none;
-    /* height: 6%;
-    margin-top: 1%; */
+/* 로고와 검색창을 한 줄에 배치하는 컨테이너 */
+.logo-container {
+    display: flex; /* 로고와 심볼을 한 줄에 배치 */
+    align-items: center; /* 수직 가운데 정렬 */
+    margin-top: 20px; /* 상단 여백 조정 */
+    width: 100%; /* 전체 너비 사용 */
+    justify-content: flex-start; /* 좌측 정렬 */
 }
 
-.header form {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 95%;
-    /* height: 100%; */
-}
-
-.header input {
-    padding: 5px;
-    font-size: 1rem;
-    margin: 0 1%;
-    width: 60%;
-    /* height: 60%; */
-}
-
-.header button {
-    padding: 5px 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    /* height: 60%; */
-}
-
-.header .submit {
-    margin-left: 1%;
-    margin-right: 1%;
-}
-.header .profile {
-    font-size: 2rem;
-    /* color: #333; */
-    text-decoration: none;
-    /* margin-left: 1%; */
-    /* height: 80%; */
-}
-
-/* 갤러리 컨테이너 */
-#gallery-container {
-    width: 70%;
-    max-width: 1200px;
-    min-height: calc(100vh - 100px -8%); /* 전체 화면에서 헤더/푸터 제외한 높이 */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* 갤러리 */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* flex-wrap: wrap; */
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: auto;
-}
-
-.item {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.item:hover {
-    transform: scale(1.05);
-}
-
-.item img {
-    width: 100%;
-    height: auto;
-}
-
-.desc {
-    padding: 10px;
-    font-size: 14px;
-    color: #333;
-}
-
-.desc .adress {
-    font-size: 12px;
-    color: #555;
-}
-
-/* 페이지 네비게이션 버튼 */
-.galleryButton {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.galleryButton button {
-    padding: 10px 15px;
-    font-size: 16px;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.galleryButton button:hover {
-    background-color: #0056b3;
-}
-#favor-container {
-    align-items: center;
-    width: 70%;
-    max-width: 1200px;
-    min-height: calc(100vh - 100px -8%); /* 전체 화면에서 헤더/푸터 제외한 높이 */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-}
-.favor {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    width: 100%;
-    margin-bottom: 1%;
-    height: auto;
-    overflow: auto;
-}
-.favorItem {
-    display: grid;
-    grid-template-columns: 1fr auto; /* 왼쪽(1fr)과 오른쪽(auto)의 그리드 비율 설정 */
-    align-items: center; /* 세로 중앙 정렬 */
-    gap: 10px; /* 그리드 간격 */
-    padding-bottom: 1%;
-    margin-bottom: 1%;
-    border-bottom: 1px solid gray;
-}
-.itemData {
-    display: flex;
-    flex-direction: column;
-}
-.itemTitle {
-    display: flex;
-    gap: 1%;
-    margin-bottom: 1%;
-}
-
-.favorItem Button {
-    justify-self: flex-end;
-
-}
-.favorEdit {
-    align-self: flex-end;
-}
-.favorEdit button, .favorItem button {
-    font-size: 2rem;
-    background-color: #007bff;
-    border:none;
-}
-.favorEdit button:hover, .favorItem button:hover {
-    font-size: 2rem;
-    background-color: #0056b3;
-}
-/* 네비게이션 */
-.nav {
-    width: 70%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    /* height: 8%; */
-    padding-bottom: 0.5%;
-    background-color: #f8f9fa;
-    border-top: 1px solid #ddd;
-}
-.nav .mapPage,
-.nav .partyPage,
-.nav .favorPage {
-    font-size: 2.5rem;
-}
-.nav {
-    cursor: pointer;
-}
-
-.nav .partyPage a {
-    text-decoration: none;
+/* 로고 스타일 */
+#header .logo {
+    font-family: 'Yeongdo', sans-serif;
+    display: flex; /* 로고 내부 텍스트와 이미지를 함께 배치 */
+    align-items: center; /* 로고 텍스트와 이미지 수직 가운데 정렬 */
     color: inherit;
+    font-weight: 100;
+    font-size: 3.5em; /* 텍스트 크기 조정 */
+    text-decoration: none !important;
+    text-transform: uppercase;
+    white-space: nowrap; /* 텍스트가 한 줄에 나오도록 설정 */
+    justify-content: flex-start; /* 로고와 텍스트를 왼쪽으로 정렬 */
 }
 
-/* 푸터 */
-.footer {
+/* 로고 이미지 스타일 */
+#header .logo .symbol {
+    margin-right: 0.25em; /* 로고 이미지와 텍스트 간 간격 */
+    position: relative;
+}
+
+#header .logo .symbol img {
+    display: block;
+    width: 2.2em; /* 로고 이미지 크기 */
+    height: 2.2em;
+}
+
+/* 모바일 및 태블릿 스타일 */
+@media (max-width: 768px) {
+    #header {
+        padding: 2em 0 0.1em 0;
+    }
+
+    .logo-container {
+        display: flex; /* Flexbox로 자식 요소를 가로 정렬 */
+        flex-direction: row; /* 기본값: 가로 정렬 */
+        justify-content: space-between; /* 로고와 심볼을 양쪽 끝으로 배치 */
+        width: 150%; /* 컨테이너가 전체 너비 사용 */
+        gap: 5px; /* 로고와 심볼 사이 간격 */
+        margin-top: -60px;
+    }
+
+}
+
+
+
+/* 네비게이션 스타일 */
+.navi {
+    background-color: #33cbca; /* 배경색 */
+    padding: 6px 0;
+    position: fixed; /* 화면에 고정 */
+    bottom: 0; /* 하단에 위치 */
+    width: 100%; /* 전체 너비 사용 */
+}
+
+.navi-section {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    /* padding: 10px; */
-    width: 70%;
-    height: 2%;
-    justify-content: center;
-    text-align: center;
-    background-color: #f8f9fa;
-    font-size: 12px;
-    color: #777;
-    border-top: 1px solid #ddd;
+    justify-content: center; /* 가운데 정렬 */
+}
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
 }
 
-/* 반응형 디자인 */
-@media screen and (max-width: 768px) {
-    #gallery-container {
-        width: 100%;
-    }
-    #favor-container {
-        width: 100%;
-    }
-    .favorItem {
-        margin-bottom: 2%;
-    }
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        /* flex-wrap: wrap; */
-        gap: 10px;
-        /* justify-content: center; */
-    }
-    
-    .container {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-    .header {
-        width: 90%;
-        height: auto; /* 부모 컨테이너 높이의 10% */
-        min-height: 60px; /* 최소 높이 설정 */
-        margin-top: 3%;
-    }
-    .header form {
-        width: 100%;
-    }
-    .header input {
-        flex-grow: 1;
-        width: 100%;
-        margin: 5px 0;
-        margin-right: 1%;
-    }
-    .header button {
-        width: auto;
-        height: auto;
-        font-size: 0.8rem;
+.navbar ul li {
+    display: inline-block;
+}
 
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul li a img {
+    width: 20px; /* 아이콘 크기 */
+    height: 20px;
+    margin-right: 8px; /* 텍스트와 아이콘 간격 */
+}
+
+.navbar ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+/* 모바일 환경용 네비게이션 바 설정 */
+@media screen and (max-width: 768px) {
+    .navi-section {
+        flex-wrap: nowrap; /* 줄바꿈 비활성화 */
+        justify-content: space-around; /* 버튼 간격 균일하게 */
+        margin-top : 0px;
+        margin-bottom: 0px;
     }
-    .header .profile {
-        font-size: 1.5rem;
-        padding-bottom: 1%;
+
+    .navbar ul {
+        flex-wrap: nowrap; /* 줄바꿈 비활성화 */
+        gap: 4px; /* 버튼 간격 조정 */
+        justify-content: space-around; /* 버튼을 균등 배치 */
+        padding: 0 0px; /* 양쪽 여백 추가 */
     }
-    .nav,.footer {
-        width: 90%;
+
+    .navbar ul li {
+        flex: 1 1 auto; /* 버튼의 너비를 균등하게 */
+        text-align: center; /* 버튼 텍스트 가운데 정렬 */
     }
-    .footer {
-        height: 5%;
+
+    .navbar ul li a {
+        font-size: 0.7em; /* 버튼 텍스트 크기 조정 */
+        padding: 7px; /* 버튼 내부 여백 축소 */
+        white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+    }
+
+    .navbar ul li a img {
+        width: 18px; /* 아이콘 크기 축소 */
+        height: 18px;
+        margin-right: 5px; /* 아이콘과 텍스트 간격 축소 */
     }
 }
