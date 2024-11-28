@@ -2682,44 +2682,70 @@ input, select, textarea {
 
 			/* 모바일 및 태블릿 스타일 */
 		@media (max-width: 768px) {
-		#header {
-			padding: 2em 0 0.1em 0;
-		}
+			#header {
+				padding: 2em 0 0.1em 0;
+				display: flex;
+				flex-direction: column; /* 세로로 배치 */
+				justify-content: flex-start; /* 상단 정렬 */
+				align-items: flex-start; /* 왼쪽 정렬 */
+				width: 100%;
+			}
 
-		.logo-container {
-			display: flex; /* Flexbox로 자식 요소를 가로 정렬 */
-			flex-direction: row; /* 기본값: 가로 정렬 */
-			align-items: center; /* 세로 중앙 정렬 */
-			justify-content: space-between; /* 로고와 검색 바를 양쪽 끝으로 배치 */
-			width: 150%; /* 컨테이너가 전체 너비 사용 */
-			gap: 5px; /* 로고와 검색창 사이 간격 */
-			margin-top: -60px;
-		}
+			#header .inner {
+				width: 100%;
+				max-width: 90%;
+				margin: 0;
+				padding: 0;
+			}
 		
-		.search-bar-container {
-			display: flex;
-			flex-direction: row; /* 검색창과 아이콘을 가로 정렬 */
-			align-items: center; /* 세로 중앙 정렬 */
-			gap: 10px; /* 검색창과 아이콘 사이 간격 */
-		}
+			.logo-container {
+				display: flex;
+				flex-direction: column; /* 로고와 검색바를 세로로 배치 */
+				align-items: flex-start; /* 왼쪽 정렬 */
+				justify-content: flex-start; /* 상단 정렬 */
+				width: 100%; /* 화면 너비 꽉 채움 */
+				gap: 5px; /* 로고와 검색바 사이 간격 */
+				margin-left: 20px;
+				margin-top: -55px;
+			}
 		
-		.search-bar {
-			flex: 1;
-			width: 300vw;
-			/* max-width: 200px; */
-			font-size: 13px;
+			.search-bar-container {
+				display: flex;
+				flex-direction: row; /* 검색창과 아이콘을 가로로 배치 */
+				align-items: center; /* 세로 중앙 정렬 */
+				gap: 10px; /* 검색창과 아이콘 사이 간격 */
+				width: 100%; /* 부모 요소 너비 꽉 채움 */
+				padding: 0 0px; /* 좌우 여백 추가 */
+			}
+		
+			.search-bar {
+				flex-grow: 1; /* 남은 공간을 차지하도록 설정 */
+				width: 100%; /* 부모 너비에 맞게 확장 */
+				font-size: 13px; /* 글자 크기 */
+				padding: 0.5em; /* 내부 여백 */
+				border: 1px solid #ccc; /* 테두리 */
+				border-radius: 4px; /* 둥근 모서리 */
+			}
+		
+			.search-icon {
+				width: 20px;
+				height: 20px;
+			}
+		
+			.voice-search-btn {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		
+			#header .logo {
+				font-size: 2em; /* 모바일에서 로고 텍스트 크기 축소 */
+				text-align: left; /* 로고 왼쪽 정렬 */
+				margin-right: 0; /* 오른쪽 마진 제거 */
+				margin-left: -30px;
+			}
 		}
-
-		.search-icon {
-			width: 20px;
-			height: 20px;
-		}
-
-		#header .logo {
-			font-size: 1.7em; /* 모바일에서 로고 텍스트 크기 축소 */
-			text-align: right; /* 로고 텍스트 중앙 정렬 */
-		}
-	}
+			
 				
 		#header nav {
 			position: fixed;
@@ -2861,30 +2887,50 @@ input, select, textarea {
 	}
 
 	/* 모바일 스타일 */
+	/* 모바일 스타일 */
 	@media (max-width: 768px) {
+		#wrapper {
+			display: flex;
+			flex-direction: column; /* 세로로 정렬 */
+			width: 100%;
+			height: 100vh; /* 화면 전체 높이 */
+		}
+
+		#main {
+			flex: 1; /* 남은 공간 전부 차지 */
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			height: 200%;
+			min-height: 0;
+		}
+
 		.map-section {
-			width: 100vw; /* 모바일에서 지도를 화면 너비에 맞춤 */
-			height: 100vh; /* 높이를 화면 크기에 맞추어 100% 설정 */
-			position: relative; /* 부모 요소에 relative 설정 */
-			overflow: hidden; /* 부모 요소 넘침 방지 */
+			width: 100%;
+			height: 200%; /* 부모 요소(#main)의 크기 */
+			position: relative;
+			overflow: hidden;
+			margin-top: 15px;
 		}
 
 		#map {
-			width: 100%; /* 지도 너비를 부모 요소에 맞게 설정 */
-			height: 100vh; /* 지도 높이를 부모 요소에 맞게 설정 */
+			width: 100%;
+			height: 200%;
 		}
 
 		#find-me {
-			position: absolute; /* 절대 위치로 고정 */
-			bottom: 10px; /* 모바일에서도 지도의 아래쪽에 고정 */
-			right: 20px; /* 모바일에서도 지도의 오른쪽에 고정 */
+			position: absolute;
+			bottom: 20px;
+			right: 20px;
 			width: 50px;
 			height: 50px;
-			padding: 0;
 			border: none;
 			border-radius: 50%;
+			z-index: 1000;
 		}
 	}
+
 
 
 	/* 네비게이션 스타일 */
@@ -2937,8 +2983,8 @@ input, select, textarea {
 		.navi-section {
 			flex-wrap: nowrap; /* 줄바꿈 비활성화 */
 			justify-content: space-around; /* 버튼 간격 균일하게 */
-			margin-top : 0px;
-			margin-bottom: 0px;
+			margin-top : 5px;
+			margin-bottom: 5px;
 		}
 
 		.navbar ul {
@@ -2967,6 +3013,14 @@ input, select, textarea {
 	}
 
 /* Wrapper */
+
+	/* Wrapper를 Flex 컨테이너로 설정 */
+	#wrapper {
+		display: flex;
+		flex-direction: column; /* 세로 정렬 */
+		width: 100%;
+		height: 100vh; /* 화면 전체 높이 */
+	}
 
 	/* #wrapper > * > .inner {
 		width: 100%;
