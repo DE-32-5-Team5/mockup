@@ -68,6 +68,115 @@
 
 }
 
+/* 즐겨찾기 리스트 스타일 */
+.favorite-list {
+    background-color: #f4f4f4; /* 배경 색 */
+    padding: 40px 0; /* 위아래 여백 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+.favorite-list .inner {
+    width: 100%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+} 
+
+h2 {
+    font-size: 2em; /* 폰트 크기 */
+    font-weight: bold; /* 볼드체로 강조 */
+    text-align: center; /* 중앙 정렬 */
+    letter-spacing: 1px; /* 문자 간 간격 조정 */
+}
+
+/* h2와 bookmark-cards 사이에 실선 추가 */
+h2 + .bookmark-cards {
+    border-top: 2px solid #1d2525;
+    padding-top: 20px; /* 실선 아래 여백 */
+}
+
+.flag-icon {
+    display: inline-flex; /* 아이콘을 수평으로 배치 */
+    justify-content: center; /* 아이콘을 가운데 정렬 */
+    align-items: center; /* 아이콘을 세로로 가운데 정렬 */
+    width: 80px; /* 원의 크기 */
+    height: 80px; /* 원의 크기 */
+    border-radius: 50%; /* 원 모양 만들기 */
+    background-color: #B19CD9; /* 원의 배경색 */
+    color: #333; /* 아이콘 색상 */
+    font-size: 2em; /* 아이콘 크기 */
+}
+
+
+.favorite-list h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.bookmark-cards {
+    display: flex;
+    flex-wrap: wrap; /* 항목들이 가득 차면 다음 줄로 넘겨서 배치 */
+    justify-content: flex-start; /* 왼쪽부터 채우기 */
+    gap: 100px; /* 카드 간 간격 */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    justify-items: center;
+}
+
+
+.bookmark-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.bookmark-card:hover {
+    transform: translateY(-10px); /* 마우스 오버 시 카드가 위로 살짝 이동 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 그림자 강조 */
+}
+
+.bookmark-card img {
+    width: 50px; /* 이미지 크기 */
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+/* 제목 */
+.bookmark-card h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.bookmark-card p {
+    font-size: 1em;
+    color: #666;
+}
+
+/* 모바일 환경 */
+@media (max-width: 768px) {
+    .bookmark-cards {
+        flex-direction: column; /* 모바일에서는 세로로 배치 */
+        align-items: center;
+    }
+
+    .bookmark-card {
+        width: 80%; /* 모바일에서는 카드 너비를 좁게 */
+        margin-bottom: 20px; /* 카드 간 간격 조정 */
+    }
+}
+
+
 
 
 /* 네비게이션 스타일 */
