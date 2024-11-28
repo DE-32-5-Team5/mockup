@@ -64,6 +64,42 @@
         <!-- 하단 섹션: 로그아웃 및 기타 -->
         <section class="logout-section">
             <button class="logout-btn">Log Out</button>
+
+            <button id="openModal">회원 탈퇴</button>
+
+            <!-- 회원 탈퇴 모달 -->
+            <div class="modal" id="unsubscribeModal">
+                <div class="modal-content">
+                    <span class="close" id="closeModal">&times;</span>
+                    <h2>회원 탈퇴</h2>
+                    <p>정말로 회원 탈퇴를 하시겠습니까?</p>
+                    <button class="confirm">탈퇴하기</button>
+                    <button class="cancel">취소</button>
+                </div>
+            </div>
+            
+            <script>
+                const modal = document.getElementById('unsubscribeModal');
+                const closeModal = document.getElementById('closeModal');
+                const openModalButton = document.getElementById('openModal');
+        
+                // 모달 열기
+                openModalButton.addEventListener('click', () => {
+                    modal.style.display = 'block';  // 모달 표시
+                });
+        
+                // 모달 닫기
+                closeModal.addEventListener('click', () => {
+                    modal.style.display = 'none';  // 모달 숨기기
+                });
+        
+                // 배경 클릭 시 모달 닫기
+                window.addEventListener('click', (event) => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';  // 모달 숨기기
+                    }
+                });
+            </script>
         </section>
     </div>
 </body>
