@@ -26,11 +26,18 @@
                     <!-- Search Bar -->
                     <div class="search-bar-container">
                         <img src="images/돋보기.png" alt="검색 아이콘" class="search-icon" />
-                        <input type="text" class="search-bar" placeholder="검색어를 입력하세요">
-                        <button class="voice-search-btn" title="음성 검색">
-                            <img src="images/microphone.png" alt="음성 검색 아이콘" class="voice-search-icon" />
-                        </button>
+                        <form class="search-form" onsubmit="return false;"> 
+                            <input type="text" class="search-bar" placeholder="검색어를 입력하세요">
+                            <div class="search-buttons">
+                                <button type="button" class="voice-search-btn" title="음성 검색">
+                                    <img src="images/microphone.png" alt="음성 검색 아이콘" class="voice-search-icon" />
+                                </button>
+                                <button type="button" class="search-button" title="검색">🔍</button>    
+                            </div>
+                        </form>
+                        <div class="suggestions"></div>
                     </div>
+                    <div class="trending-searches">
                 </div>
             </div>
         </header>
@@ -69,7 +76,8 @@
                 </nav>
             </div>
         </div>
-
+    <!-- 검색창 기능 -->
+    <script src="assets/js/form.js"></script>
     <!-- 지도 그리는 곳 -->
 
     <!-- Leaflet JavaScript -->
