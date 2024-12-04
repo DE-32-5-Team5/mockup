@@ -143,11 +143,15 @@
                 status.textContent = "Unable to retrieve your location";
             }
 
+            var options = {
+                enableHighAccuracy: true
+            }
+
             if (!navigator.geolocation) {
                 status.textContent = "Geolocation is not supported by your browser";
             } else {
                 status.textContent = "Locating…";
-                navigator.geolocation.getCurrentPosition(success, error);
+                navigator.geolocation.getCurrentPosition(success, error, options);
             }
         }
         // 웹 시작하자마자 현재 위치로 이동!
